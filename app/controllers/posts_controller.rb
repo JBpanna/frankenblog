@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
   before_action :write_before, only: [:practice]
-  before_action :set_post, only: [:show, :edit, :single, :practice, :update, :destroy, :experiment]
+  before_action :set_post, only: [:show, :edit, :single, :practice, :update, :destroy,]
   after_action :write_after, only: [:practice]
   around_action :write_around, only: [:practice]
   # GET /posts
   # GET /posts.json
   def index
+    @posts = Post.all
+  end
+
+  def experiment
     @posts = Post.all
   end
 
